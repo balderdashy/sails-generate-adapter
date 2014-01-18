@@ -2,12 +2,59 @@
 
 # <%= moduleName %>
 
-An adapter for <%= adapterName %> which makes it accessible from Waterline, Sails' built-in ORM.
+Provides easy access to `<%= adapterName %>` from Sails.js & Waterline.
 
+This module is a Waterline/Sails adapter, an early implementation of a rapidly-developing, tool-agnostic data standard.  Its goal is to provide a set of declarative interfaces, conventions, and best-practices for integrating with all sorts of data sources.  Not just databases-- external APIs, proprietary web services, or even hardware.
 
+Strict adherence to an adapter specification enables the (re)use of built-in generic test suites, standardized documentation, reasonable expectations around the API for your users, and overall, a more pleasant development experience for everyone.
 
 
 ### Installation
+
+To install this adapter, run:
+
+```sh
+$ npm install <%= moduleName %>
+```
+
+
+
+
+### Usage
+
+This adapter exposes the following methods:
+
+###### `find()`
+
++ **Status**
+  + Planned
+
+###### `create()`
+
++ **Status**
+  + Planned
+
+###### `update()`
+
++ **Status**
+  + Planned
+
+###### `destroy()`
+
++ **Status**
+  + Planned
+
+
+
+### Interfaces
+
+>TODO:
+>Specify the interfaces this adapter will support.
+>e.g. `This adapter implements the [semantic]() and [queryable]() interfaces.`
+> For more information, check out this repository's [FAQ](./FAQ.md) and the [adapter interface reference](https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md) in the Sails docs.
+
+
+### Development
 
 Check out **Connections** in the Sails docs, or see the `config/connections.js` file in a new Sails project for information on setting up adapters.
 
@@ -18,20 +65,24 @@ It's usually pretty easy to add your own adapters for integrating with proprieta
 2. Set up your `README.md` and `package.json` file.  Sails.js adapter module names are of the form sails-*, where * is the name of the datastore or service you're integrating with.
 3. Build your adapter.
 
-## How to test your adapter
+
+
+
+### Running the tests
 
 Configure the interfaces you plan to support (and targeted version of Sails/Waterline) in the adapter's `package.json` file:
 
 ```javascript
 {
   //...
-  "sailsAdapter": {
-    "sailsVersion": "~0.10.0",
-    "implements": [
-      "semantic",
-      "queryable",
-      "associations"
-    ]
+  "sails": {
+  	"adapter": {
+	    "sailsVersion": "~0.10.0",
+	    "implements": [
+	      "semantic",
+	      "queryable"
+	    ]
+	  }
   }
 }
 ```
@@ -59,8 +110,34 @@ $ npm test
 8. Run `git push && git push --tags`
 9. Run `npm publish`
 
-## About Sails.js and Waterline
-http://sailsjs.org
 
-Waterline is a new kind of storage and retrieval engine for Sails.js.  It provides a uniform API for accessing stuff from different kinds of databases, protocols, and 3rd party APIs.  That means you write the same code to get users, whether they live in mySQL, LDAP, MongoDB, or Facebook.
+
+
+### Questions?
+
+See [`FAQ.md`](./FAQ.md).
+
+
+
+### More Resources
+
+- [Stackoverflow](http://stackoverflow.com/questions/tagged/sails.js)
+- [#sailsjs on Freenode](http://webchat.freenode.net/) (IRC channel)
+- [Twitter](https://twitter.com/sailsjs)
+- [Professional/enterprise](https://github.com/balderdashy/sails-docs/blob/master/FAQ.md#are-there-professional-support-options)
+- [Tutorials](https://github.com/balderdashy/sails-docs/blob/master/FAQ.md#where-do-i-get-help)
+- <a href="http://sailsjs.org" target="_blank" title="Node.js framework for building realtime APIs."><img src="https://github-camo.global.ssl.fastly.net/9e49073459ed4e0e2687b80eaf515d87b0da4a6b/687474703a2f2f62616c64657264617368792e6769746875622e696f2f7361696c732f696d616765732f6c6f676f2e706e67" width=60 alt="Sails.js logo (small)"/></a>
+
+
+### License
+
+**[MIT](./LICENSE)**
+&copy; 2014 [balderdashy](http://github.com/balderdashy) & [contributors]
+[Mike McNeil](http://michaelmcneil.com), [Balderdash](http://balderdash.co) & contributors
+
+[Sails](http://sailsjs.org) is free and open-source under the [MIT License](http://sails.mit-license.org/).
+
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/8acf2fc2ca0aca8a3018e355ad776ed7 "githalytics.com")](http://githalytics.com/balderdashy/<%= moduleName %>/README.md)
+
 
