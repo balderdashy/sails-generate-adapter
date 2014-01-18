@@ -10,7 +10,7 @@
 
 
 /**
- * Sails Boilerplate Adapter
+ * <%= moduleName %>
  *
  * Most of the methods below are optional.
  *
