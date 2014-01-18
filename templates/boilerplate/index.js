@@ -13,11 +13,11 @@
  * Sails Boilerplate Adapter
  *
  * Most of the methods below are optional.
- * 
+ *
  * If you don't need / can't get to every method, just implement
  * what you have time for.  The other methods will only fail if
  * you try to call them!
- * 
+ *
  * For many adapters, this file is all you need.  For very complex adapters, you may need more flexiblity.
  * In any case, it's probably a good idea to start with one file and refactor only if necessary.
  * If you do go that route, it's conventional in Node to create a `./lib` directory for your private submodules
@@ -31,22 +31,22 @@ module.exports = (function () {
   var _modelReferences = {};
 
 
-  
+
   // You may also want to store additional, private data
   // per-collection (esp. if your data store uses persistent
   // connections).
   //
   // Keep in mind that models can be configured to use different databases
   // within the same app, at the same time.
-  // 
+  //
   // i.e. if you're writing a MariaDB adapter, you should be aware that one
   // model might be configured as `host="localhost"` and another might be using
-  // `host="foo.com"` at the same time.  Same thing goes for user, database, 
+  // `host="foo.com"` at the same time.  Same thing goes for user, database,
   // password, or any other config.
   //
   // You don't have to support this feature right off the bat in your
   // adapter, but it ought to get done eventually.
-  // 
+  //
   // Sounds annoying to deal with...
   // ...but it's not bad.  In each method, acquire a connection using the config
   // for the current model (looking it up from `_modelReferences`), establish
@@ -54,7 +54,7 @@ module.exports = (function () {
   // Finally, as an optimization, you might use a db pool for each distinct
   // connection configuration, partioning pools for each separate configuration
   // for your adapter (i.e. worst case scenario is a pool for each model, best case
-  // scenario is one single single pool.)  For many databases, any change to 
+  // scenario is one single single pool.)  For many databases, any change to
   // host OR database OR user OR password = separate pool.
   var _dbPools = {};
 
@@ -68,22 +68,41 @@ module.exports = (function () {
     syncable: false,
 
 
-    // Default configuration for collections
-    // (same effect as if these properties were included at the top level of the model definitions)
+    // Default configuration for connections
     defaults: {
-
-      // For example:
+    	// For example, MySQLAdapter might set its default port and host.
       // port: 3306,
       // host: 'localhost',
       // schema: true,
       // ssl: false,
       // customThings: ['eh']
+    },
 
-      // If setting syncable, you should consider the migrate option, 
+
+
+    /**
+     *
+     * This method runs when a model is initially registered
+     * at server-start-time.  This is the only required method.
+     *
+     * @param  {[type]}   collection [description]
+     * @param  {Function} cb         [description]
+     * @return {[type]}              [description]
+     */
+    registerCollection: function(collection, cb) {
+
+
+			//
+			// Setting Default Properties For Models
+			//
+			// (same effect as if these properties were included
+			// at the top level of the model definitions)
+			//
+      // If setting syncable, you should consider the migrate option,
       // which allows you to set how the sync will be performed.
       // It can be overridden globally in an app (config/adapters.js)
       // and on a per-model basis.
-      // 
+      //
       // IMPORTANT:
       // `migrate` is not a production data migration solution!
       // In production, always use `migrate: safe`
@@ -91,25 +110,11 @@ module.exports = (function () {
       // drop   => Drop schema and data, then recreate it
       // alter  => Drop/add columns as necessary.
       // safe   => Don't change anything (good for production DBs)
-      migrate: 'alter'
-    },
 
-
-
-    /**
-     * 
-     * This method runs when a model is initially registered
-     * at server-start-time.  This is the only required method.
-     * 
-     * @param  {[type]}   collection [description]
-     * @param  {Function} cb         [description]
-     * @return {[type]}              [description]
-     */
-    registerCollection: function(collection, cb) {
 
       // Keep a reference to this collection
       _modelReferences[collection.identity] = collection;
-      
+
       cb();
     },
 
@@ -118,7 +123,7 @@ module.exports = (function () {
      * Fired when a model is unregistered, typically when the server
      * is killed. Useful for tearing-down remaining open connections,
      * etc.
-     * 
+     *
      * @param  {Function} cb [description]
      * @return {[type]}      [description]
      */
@@ -129,10 +134,10 @@ module.exports = (function () {
 
 
     /**
-     * 
+     *
      * REQUIRED method if integrating with a schemaful
      * (SQL-ish) database.
-     * 
+     *
      * @param  {[type]}   collectionName [description]
      * @param  {[type]}   definition     [description]
      * @param  {Function} cb             [description]
@@ -151,7 +156,7 @@ module.exports = (function () {
      *
      * REQUIRED method if integrating with a schemaful
      * (SQL-ish) database.
-     * 
+     *
      * @param  {[type]}   collectionName [description]
      * @param  {Function} cb             [description]
      * @return {[type]}                  [description]
@@ -172,7 +177,7 @@ module.exports = (function () {
      *
      * REQUIRED method if integrating with a schemaful
      * (SQL-ish) database.
-     * 
+     *
      * @param  {[type]}   collectionName [description]
      * @param  {[type]}   relations      [description]
      * @param  {Function} cb             [description]
@@ -190,7 +195,7 @@ module.exports = (function () {
 
 
     // OVERRIDES NOT CURRENTLY FULLY SUPPORTED FOR:
-    // 
+    //
     // alter: function (collectionName, changes, cb) {},
     // addAttribute: function(collectionName, attrName, attrDef, cb) {},
     // removeAttribute: function(collectionName, attrName, attrDef, cb) {},
@@ -201,14 +206,14 @@ module.exports = (function () {
 
 
     /**
-     * 
+     *
      * REQUIRED method if users expect to call Model.find(), Model.findOne(),
      * or related.
-     * 
+     *
      * You should implement this method to respond with an array of instances.
      * Waterline core will take care of supporting all the other different
      * find methods/usages.
-     * 
+     *
      * @param  {[type]}   collectionName [description]
      * @param  {[type]}   options        [description]
      * @param  {Function} cb             [description]
@@ -220,12 +225,12 @@ module.exports = (function () {
       var collection = _modelReferences[collectionName];
 
       // Options object is normalized for you:
-      // 
+      //
       // options.where
       // options.limit
       // options.skip
       // options.sort
-      
+
       // Filter, paginate, and sort records from the datastore.
       // You should end up w/ an array of objects as a result.
       // If no matches were found, this will be an empty array.
@@ -237,7 +242,7 @@ module.exports = (function () {
     /**
      *
      * REQUIRED method if users expect to call Model.create() or any methods
-     * 
+     *
      * @param  {[type]}   collectionName [description]
      * @param  {[type]}   values         [description]
      * @param  {Function} cb             [description]
@@ -255,11 +260,11 @@ module.exports = (function () {
 
 
 
-    // 
+    //
 
     /**
      *
-     * 
+     *
      * REQUIRED method if users expect to call Model.update()
      *
      * @param  {[type]}   collectionName [description]
@@ -276,19 +281,19 @@ module.exports = (function () {
       // 1. Filter, paginate, and sort records from the datastore.
       //    You should end up w/ an array of objects as a result.
       //    If no matches were found, this will be an empty array.
-      //    
+      //
       // 2. Update all result records with `values`.
-      // 
+      //
       // (do both in a single query if you can-- it's faster)
 
       // Respond with error or an array of updated records.
       cb(null, []);
     },
- 
+
     /**
      *
      * REQUIRED method if users expect to call Model.destroy()
-     * 
+     *
      * @param  {[type]}   collectionName [description]
      * @param  {[type]}   options        [description]
      * @param  {Function} cb             [description]
@@ -303,9 +308,9 @@ module.exports = (function () {
       // 1. Filter, paginate, and sort records from the datastore.
       //    You should end up w/ an array of objects as a result.
       //    If no matches were found, this will be an empty array.
-      //    
+      //
       // 2. Destroy all result records.
-      // 
+      //
       // (do both in a single query if you can-- it's faster)
 
       // Return an error, otherwise it's declared a success.
@@ -399,7 +404,7 @@ module.exports = (function () {
     })
 
 
-    
+
 
     */
 
