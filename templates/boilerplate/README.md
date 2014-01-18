@@ -1,14 +1,15 @@
-![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png) 
+![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png)
 
-# sails-adapter-boilerplate
+# <%= moduleName %>
 
-This template exists to make it easier for you to get started writing an adapter for Sails.js.
+An adapter for <%= adapterName %> which makes it accessible from Waterline, Sails' built-in ORM.
 
-> ### WARNING
->
-> This version of the adapter is for the upcoming v0.10 release of Sails / Waterline.
-> Check out the 0.8 branch for the original stuff.
 
+
+
+### Installation
+
+Check out **Connections** in the Sails docs, or see the `config/connections.js` file in a new Sails project for information on setting up adapters.
 
 ## Getting started
 It's usually pretty easy to add your own adapters for integrating with proprietary systems or existing open APIs.  For most things, it's as easy as `require('some-module')` and mapping the appropriate methods to match waterline semantics.  To get started:
@@ -50,7 +51,7 @@ $ npm test
 1. Create a [new public repo](https://github.com/new) and add it as a remote (`git remote add origin git@github.com:yourusername/sails-youradaptername.git)
 2. Make sure you attribute yourself as the author and set the license in the package.json to "MIT".
 3. Run the tests one last time.
-4. Do a [pull request to sails-docs](https://github.com/balderdashy/sails-docs/compare/) adding your repo to `data/adapters.js`.  Please let us know about any special instructions for usage/testing. 
+4. Do a [pull request to sails-docs](https://github.com/balderdashy/sails-docs/compare/) adding your repo to `data/adapters.js`.  Please let us know about any special instructions for usage/testing.
 5. We'll update the documentation with information about your new adapter
 6. Then everyone will adore you with lavish praises.  Mike might even send you jelly beans.
 
