@@ -1,0 +1,41 @@
+{
+  "name": "sails-YOUR_ADAPTER",
+  "version": "0.10.0",
+  "description": "YOUR_ADAPTER_DATASRC adapter for Sails / Waterline",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/integration/runner -R spec -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/sails-YOUR_ADAPTER.git"
+  },
+  "keywords": [
+    "A_KEYWORD_SPECIFIC_TO_YOUR_ADAPTER",
+    "ANOTHER_KEYWORD_SPECIFIC_TO_YOUR_ADAPTER",
+    "adapter",
+    "sails",
+    "waterline",
+    "orm",
+    "sailsjs",
+    "sails.js"
+  ],
+  "author": "YOUR NAME <YOUR@EMAIL>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {},
+  "devDependencies": {
+    "waterline-adapter-tests": "git://github.com/balderdashy/waterline-adapter-tests.git#associations",
+    "mocha": "*",
+    "root-require": "~0.2.0",
+    "captains-log": "~0.10.6"
+  },
+  "sailsAdapter": {
+    "sailsVersion": "~0.10.0",
+    "implements": [
+      "semantic",
+      "queryable",
+      "associations"
+    ]
+  }
+}
