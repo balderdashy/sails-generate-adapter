@@ -46,7 +46,7 @@ log.info('Running `waterline-adapter-tests` against ' + interfaces.length + ' in
 log.info('( ' + interfaces.join(', ') + ' )');
 console.log();
 log('Latest draft of Waterline adapter interface spec:');
-log('https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md');
+log('http://links.sailsjs.org/docs/plugins/adapters/interfaces');
 console.log();
 
 
