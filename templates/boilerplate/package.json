@@ -25,7 +25,7 @@
     "captains-log": "~0.11.0"
   },
   "waterlineAdapter": {
-      "identity": "<%= adapterName %>",
+      "type": "<%= adapterName %>",
       "interfaces": [
         "semantic",
         "queryable"
