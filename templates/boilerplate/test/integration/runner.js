@@ -6,6 +6,16 @@ var mocha = require('mocha');
 var log = new (require('captains-log'))();
 
 
+/**
+ * Run integration tests
+ *
+ * Uses the `waterline-adapter-tests` module to
+ * run mocha tests against the appropriate version
+ * of Waterline.  Only the interfaces explicitly
+ * declared in this adapter's `package.json` file
+ * are tested. (e.g. `queryable`, `semantic`, etc.)
+ */
+
 var TestRunner = require('waterline-adapter-tests');
 var Adapter = require('../../');
 
