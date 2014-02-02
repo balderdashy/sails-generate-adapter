@@ -27,7 +27,7 @@
   },
   "waterlineAdapter": {
       "identity": "<%= adapterName %>",
-      "implements": [
+      "interfaces": [
         "semantic",
         "queryable"
       ],
