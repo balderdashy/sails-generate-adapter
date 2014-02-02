@@ -25,12 +25,11 @@
     "captains-log": "~0.11.0"
   },
   "waterlineAdapter": {
-      "type": "<%= adapterName %>",
-      "interfaces": [
-        "semantic",
-        "queryable"
-      ],
-      "waterlineVersion": "~0.10.0"
-    }
+    "type": "<%= adapterName %>",
+    "interfaces": [
+      "semantic",
+      "queryable"
+    ],
+    "waterlineVersion": "~0.10.0"
   }
 }
