@@ -25,14 +25,13 @@
     "root-require": "~0.2.0",
     "captains-log": "~0.11.0"
   },
-  "sails": {
-		"adapter": {
-			"name": "<%= adapterName %>",
-			"implements": [
-				"semantic",
-	      "queryable"
-			],
-			"sailsVersion": "~0.10.0"
-		}
+  "waterlineAdapter": {
+      "identity": "<%= adapterName %>",
+      "implements": [
+        "semantic",
+        "queryable"
+      ],
+      "waterlineVersion": "~0.10.0"
+    }
   }
 }
