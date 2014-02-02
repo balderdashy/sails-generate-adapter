@@ -25,9 +25,8 @@
     "fs-extra": "*"
   },
   "sailsGenerator": {
-      "type": "adapter",
-      "behavior": "default implementation of `sails generate adapter`",
-      "sailsVersion": "~0.10.0"
-    }
+    "type": "adapter",
+    "behavior": "default implementation of `sails generate adapter`",
+    "sailsVersion": "~0.10.0"
   }
 }
