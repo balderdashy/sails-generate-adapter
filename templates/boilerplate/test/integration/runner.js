@@ -16,12 +16,12 @@ var package = {};
 var interfaces = [];
 try {
     package = require('root-require')('package.json');
-    interfaces = package['sails']['adapter'].implements;
+    interfaces = package['waterlineAdapter'].implements;
 }
 catch (e) {
     throw new Error(
     '\n'+
-    'Could not read supported interfaces from "sails-adapter"."interfaces"'+'\n' +
+    'Could not read supported interfaces from `waterlineAdapter.interfaces`'+'\n' +
     'in this adapter\'s `package.json` file ::' + '\n' +
     util.inspect(e)
     );
@@ -31,7 +31,7 @@ catch (e) {
 
 
 
-log.info('Testing `' + package.name + '`, a Sails adapter.');
+log.info('Testing `' + package.name + '`, a Sails/Waterline adapter.');
 log.info('Running `waterline-adapter-tests` against ' + interfaces.length + ' interfaces...');
 log.info('( ' + interfaces.join(', ') + ' )');
 console.log();
