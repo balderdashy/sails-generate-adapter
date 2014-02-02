@@ -27,8 +27,7 @@
   "sailsGenerator": {
       "type": "adapter",
       "behavior": "default implementation of `sails generate adapter`",
-      "sailsVersion": "~0.10.0",
-      "main": "lib/index"
+      "sailsVersion": "~0.10.0"
     }
   }
 }
