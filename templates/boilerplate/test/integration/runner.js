@@ -1,12 +1,4 @@
 /**
- * Test runner dependencies
- */
-var util = require('util');
-var mocha = require('mocha');
-var log = new (require('captains-log'))();
-
-
-/**
  * Run integration tests
  *
  * Uses the `waterline-adapter-tests` module to
@@ -16,6 +8,14 @@ var log = new (require('captains-log'))();
  * are tested. (e.g. `queryable`, `semantic`, etc.)
  */
 
+
+/**
+ * Module dependencies
+ */
+
+var util = require('util');
+var mocha = require('mocha');
+var log = new (require('captains-log'))();
 var TestRunner = require('waterline-adapter-tests');
 var Adapter = require('../../');
 
