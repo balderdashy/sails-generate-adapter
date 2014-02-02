@@ -24,10 +24,9 @@
     "reportback": "*",
     "fs-extra": "*"
   },
-  "sails": {
-    "generator": {
-      "name": "adapter",
-      "behavior": "overrides `sails generate adapter`",
+  "sailsGenerator": {
+      "type": "adapter",
+      "behavior": "default implementation of `sails generate adapter`",
       "sailsVersion": "~0.10.0",
       "main": "lib/index"
     }
