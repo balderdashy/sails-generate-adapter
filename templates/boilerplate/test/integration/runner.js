@@ -25,8 +25,8 @@ var Adapter = require('../../');
 var package = {};
 var interfaces = [];
 try {
-    package = require('root-require')('package.json');
-    interfaces = package['waterlineAdapter'].implements;
+    package = require('../../package.json');
+    interfaces = package['waterlineAdapter'].interfaces;
 }
 catch (e) {
     throw new Error(
