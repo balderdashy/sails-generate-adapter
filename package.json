@@ -1,6 +1,6 @@
 {
   "name": "sails-generate-adapter",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "Generate a adapter for Sails.",
   "main": "lib/index.js",
   "scripts": {
