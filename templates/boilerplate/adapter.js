@@ -180,7 +180,7 @@ module.exports = (function () {
       return cb();
     },
 
-    destroy: function (connection, collection, options, values, cb) {
+    destroy: function (connection, collection, options, cb) {
       return cb();
     }
 
