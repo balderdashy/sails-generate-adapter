@@ -58,7 +58,7 @@ $ node ./bin
 
 ### Questions?
 
-See `FAQ.md`.
+See [FAQ.md](https://github.com/balderdashy/sails-generate-adapter/blob/master/FAQ.md).
 
 
 
