@@ -180,7 +180,7 @@ module.exports = (function () {
       return cb();
     },
 
-    destroy: function (connection, collection, options, values, cb) {
+    destroy: function (connection, collection, options, cb) {
       return cb();
     }
 
@@ -191,10 +191,10 @@ module.exports = (function () {
     //
     // e.g.:
     //
-    foo: function (collectionName, options, cb) {
+    foo: function (connection, collection, options, cb) {
       return cb(null,"ok");
     },
-    bar: function (collectionName, options, cb) {
+    bar: function (connection, collection, options, cb) {
       if (!options.jello) return cb("Failure!");
       else return cb();
       destroy: function (connection, collection, options, values, cb) {
